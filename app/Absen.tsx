@@ -9,7 +9,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Asen</Text>
+      <Text>Disini Tempat atau tampilan absen</Text>
     </View>
   );
 }

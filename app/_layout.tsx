@@ -1,11 +1,65 @@
-import { Stack } from "expo-router";
+import { Tabs } from 'expo-router';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
-export default function RootLayout() {
+export default function TabLayout() {
   return (
-    <Stack>
-      <Stack.Screen name="index" />
-      <Stack.Screen name="About" />
-      <Stack.Screen name="Aseen" />
-    </Stack>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: '#ffd33d',
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Index',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons 
+              name={focused ? 'checkmark-circle' : 'checkmark-circle-outline'} 
+              color={color} 
+              size={24} 
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="Beranda"
+        options={{
+          title: 'Beranda',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons 
+              name={focused ? 'checkmark-circle' : 'checkmark-circle-outline'} 
+              color={color} 
+              size={24} 
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="absen"
+        options={{
+          title: 'Absen',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons 
+              name={focused ? 'checkmark-circle' : 'checkmark-circle-outline'} 
+              color={color} 
+              size={24} 
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons 
+              name={focused ? 'person-circle' : 'person-circle-outline'} 
+              color={color} 
+              size={24} 
+            />
+          ),
+        }}
+      />
+    </Tabs>
   );
 }
