@@ -9,7 +9,7 @@ const LoginScreen = () => {
         <Text style={styles.title}>LOG IN</Text>
         <TextInput 
           style={styles.input} 
-          placeholder="Password" 
+          placeholder="Email" 
           secureTextEntry 
         />
         <TextInput 
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   icon: {
-    marginHorizontal: 10, // Menambahkan jarak horizontal di antara ikon
+    marginHorizontal: 10,
   },
 });
 

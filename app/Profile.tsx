@@ -6,16 +6,11 @@ const ProfileScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Profil</Text>
+        <Text style={styles.title}></Text>
         <View style={styles.iconContainer}>
           <Icon name="cog" size={20} color="#4B5563" style={styles.icon} />
           <Icon name="ellipsis-v" size={20} color="#4B5563" style={styles.icon} />
         </View>
-      </View>
-
-      <View style={styles.buttonContainer}>
-        <Button title="Setelan" color="#6B7280" onPress={() => {}} />
-        <Button title="Akun" color="#3B82F6" onPress={() => {}} />
       </View>
 
       <View style={styles.profileInfo}>

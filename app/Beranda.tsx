@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, Button, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { Text, View, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
@@ -7,22 +7,28 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.title}>Beranda</Text>
+        <Text style={styles.title}>PROFILE</Text>
         <Image
           style={styles.profileImage}
-          source={{ uri: 'https://storage.googleapis.com/a1aa/image/hIyP7G9WhfxTaCe3V2oIPQiXhyfpnm0dMy1ezEUJwQ7L1ZAPB.jpg' }}
+          source={{ uri: 'https://storage.googleapis.com/a1aa/image/aFXtqJJfJY2sWKyd80RvOXc4B27fzPZ1W1qC53WYl5ztWPwTA.jpg' }}
         />
         <Text style={styles.welcomeText}>Selamat Datang</Text>
+        
         <View style={styles.iconGrid}>
-          {['book', 'lock', 'calendar', 'envelope', 'bell', 'user'].map((icon, index) => (
-            <TouchableOpacity key={index} style={styles.iconContainer}>
-              <Text style={styles.icon}>{`📚`}</Text>
+          {[
+            { key: 'book', emoji: '📚', label: 'Buku' },
+            { key: 'calendar', emoji: '📅', label: 'Kalender' },
+            { key: 'class', emoji: '🏫', label: 'Kelas' },
+            { key: 'subjectSchedule', emoji: '🗒️', label: 'Jadwal' },
+            { key: 'studentList', emoji: '👥', label: 'Daftar Siswa' },
+            { key: 'settings', emoji: '⚙️', label: 'Pengaturan' },
+          ].map((item) => (
+            <TouchableOpacity key={item.key} style={styles.iconContainer}>
+              <Text style={styles.icon}>{item.emoji}</Text>
+              <Text style={styles.iconLabel}>{item.label}</Text>
             </TouchableOpacity>
           ))}
         </View>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>MASUK</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
@@ -33,16 +39,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#E0F7FA',
+    backgroundColor: 'white',
   },
   card: {
     backgroundColor: 'white',
     borderRadius: 10,
     padding: 20,
-    width: width * 0.9, // Mengatur lebar card menjadi 90% dari lebar layar
-    maxWidth: 400, // Maksimal lebar card
+    width: width * 0.9,
+    maxWidth: 400, 
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: 'white',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -52,7 +58,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   title: {
-    fontSize: 28, // Ukuran font yang lebih kecil
+    fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 20,
   },
@@ -63,7 +69,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   welcomeText: {
-    fontSize: 20, // Ukuran font yang lebih kecil
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
   },
@@ -74,7 +80,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   iconContainer: {
-    backgroundColor: '#BBDEFB',
+    backgroundColor: '#38a169',
     borderRadius: 10,
     padding: 10,
     margin: 5,
@@ -84,16 +90,10 @@ const styles = StyleSheet.create({
   icon: {
     fontSize: 24,
   },
-  button: {
-    backgroundColor: '#42A5F5',
-    borderRadius: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    marginBottom: 20,
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
+  iconLabel: {
+    marginTop: 5, 
+    fontSize: 14, 
+    textAlign: 'center',
   },
 });
 
