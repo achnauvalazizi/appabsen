@@ -3,8 +3,9 @@ import { View, Text, TextInput, Button, FlatList, StyleSheet, Picker, TouchableO
 
 const AttendanceApp = () => {
   const [name, setName] = useState('');
-  const [selectedClass, setSelectedClass] = useState('Class A');
+  const [selectedClass, setSelectedClass] = useState('Kelas X KEPERAWATAN');
   const [attendanceList, setAttendanceList] = useState([]);
+  const [selectedStatus, setSelectedStatus] = useState('Hadir');
 
   const handleAttendanceSubmission = () => {
     if (name.trim()) {
@@ -12,30 +13,17 @@ const AttendanceApp = () => {
         id: Date.now().toString(),
         name,
         class: selectedClass,
-        present: false,
+        status: selectedStatus,
       };
       setAttendanceList((prevList) => [...prevList, newAttendance]);
       setName('');
     }
   };
 
-  const toggleAttendance = (id) => {
-    setAttendanceList((prevList) =>
-      prevList.map((item) =>
-        item.id === id ? { ...item, present: !item.present } : item
-      )
-    );
-  };
-
   const renderAttendanceItem = ({ item, index }) => (
     <View style={styles.itemContainer}>
       <Text style={styles.item}>{`No. ${index + 1}: ${item.name} - ${item.class}`}</Text>
-      <TouchableOpacity
-        style={[styles.button, item.present ? styles.present : styles.absent]}
-        onPress={() => toggleAttendance(item.id)}
-      >
-        <Text style={styles.buttonText}>{item.present ? 'Present' : 'Absent'}</Text>
-      </TouchableOpacity>
+      <Text style={styles.status}>{item.status}</Text>
     </View>
   );
 
@@ -59,6 +47,16 @@ const AttendanceApp = () => {
         <Picker.Item label="Kelas XI FARMASI" value="Kelas XI FARMASI" />
         <Picker.Item label="Kelas XII KEPERAWATAN" value="Kelas XII KEPERAWATAN" />
         <Picker.Item label="Kelas XII FARMASI" value="Kelas XII FARMASI" />
+      </Picker>
+      <Picker
+        selectedValue={selectedStatus}
+        style={styles.picker}
+        onValueChange={(itemValue) => setSelectedStatus(itemValue)}
+      >
+        <Picker.Item label="Hadir" value="Hadir" />
+        <Picker.Item label="Alpa" value="Alpa" />
+        <Picker.Item label="Izin" value="Izin" />
+        <Picker.Item label="Sakit" value="Sakit" />
       </Picker>
       <Button title="Kirim Daftar Hadir" onPress={handleAttendanceSubmission} />
       <FlatList
@@ -105,19 +103,9 @@ const styles = StyleSheet.create({
   item: {
     fontSize: 18,
   },
-  button: {
-    padding: 10,
-    borderRadius: 5,
-  },
-  present: {
-    backgroundColor: 'green',
-  },
-  absent: {
-    backgroundColor: 'red',
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
+  status: {
+    fontSize: 18,
+    color: 'green',
   },
   list: {
     marginTop: 20,
