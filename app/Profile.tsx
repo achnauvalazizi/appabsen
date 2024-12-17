@@ -1,41 +1,18 @@
 import React from 'react';
-import { View, Text, Image, Button, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 const ProfileScreen = () => {
+  const user = {
+    name: 'John Doe',
+    email: 'johndoe@example.com',
+    profilePicture: 'https://via.placeholder.com/150', // Ganti dengan URL gambar profil yang sesuai
+  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}></Text>
-        <View style={styles.iconContainer}>
-          <Icon name="cog" size={20} color="#4B5563" style={styles.icon} />
-          <Icon name="ellipsis-v" size={20} color="#4B5563" style={styles.icon} />
-        </View>
-      </View>
-
-      <View style={styles.profileInfo}>
-        <Image
-          style={styles.profileImage}
-          source={{ uri: 'https://storage.googleapis.com/a1aa/image/aFXtqJJfJY2sWKyd80RvOXc4B27fzPZ1W1qC53WYl5ztWPwTA.jpg' }}
-        />
-        <Text style={styles.profileName}>high air</Text>
-        <Text style={styles.profileEmail}>highair.info@gmail.com</Text>
-      </View>
-
-      <View style={styles.dataSection}>
-        <Text style={styles.dataTitle}>Sinkronisasi Data</Text>
-        <Text style={styles.dataText}>Terakhir di sinkronisasi: 4 menit yang lalu.</Text>
-      </View>
-      <View style={styles.dataSection}>
-        <Text style={styles.dataTitle}>Data Absensi Kelas Tertunda</Text>
-        <Text style={styles.dataText}>1 data Absensi Kelas belum tersalin.</Text>
-      </View>
-      <View style={styles.dataSection}>
-        <Text style={styles.dataTitle}>Data Nilai Kelas Tertunda</Text>
-        <Text style={styles.dataText}>1 data Nilai Kelas belum tersalin.</Text>
-      </View>
-      <Button title="Keluar" color="#EF4444" onPress={() => {}} />
-
+      <Image source={{ uri: user.profilePicture }} style={styles.profilePicture} />
+      <Text style={styles.name}>{user.name}</Text>
+      <Text style={styles.email}>{user.email}</Text>
     </View>
   );
 };
@@ -43,68 +20,24 @@ const ProfileScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F3F4F6',
-    padding: 16,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-    paddingBottom: 8,
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: '#f5f5f5',
   },
-  title: {
+  profilePicture: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    marginBottom: 20,
+  },
+  name: {
     fontSize: 24,
-    fontWeight: '600',
+    fontWeight: 'bold',
   },
-  iconContainer: {
-    flexDirection: 'row',
-    gap: 16,
-  },
-  icon: {
-    marginLeft: 16,
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginVertical: 16,
-  },
-  profileInfo: {
-    alignItems: 'center',
-    marginVertical: 16,
-  },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-  },
-  profileName: {
-    fontSize: 18,
-    fontWeight: '600',
-    marginTop: 8,
-  },
-  profileEmail: {
-    color: '#4B5563',
-  },
-  dataSection: {
-    borderTopWidth: 1,
-    borderTopColor: '#E5E7EB',
-    paddingVertical: 16,
-  },
-  dataTitle: {
+  email: {
     fontSize: 16,
-    fontWeight: '600',
-  },
-  dataText: {
-    color: '#4B5563',
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    borderTopWidth: 1,
-    borderTopColor: '#E5E7EB',
-    paddingVertical: 16,
+    color: '#666',
   },
 });
 
