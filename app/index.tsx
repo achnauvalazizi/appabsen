@@ -10,11 +10,10 @@ const LoginScreen = () => {
         <TextInput 
           style={styles.input} 
           placeholder="Email" 
-          secureTextEntry 
         />
         <TextInput 
           style={styles.input} 
-          placeholder="Lupa Password" 
+          placeholder="Password" 
           secureTextEntry 
         />
         <TouchableOpacity style={styles.button}>

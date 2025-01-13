@@ -3,8 +3,8 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 const ProfileScreen = () => {
   const user = {
-    name: 'John Doe',
-    email: 'johndoe@example.com',
+    name: 'Ach. Nauval Azizi',
+    email: 'Nauval@example.com',
     profilePicture: 'https://via.placeholder.com/150', // Ganti dengan URL gambar profil yang sesuai
   };
 

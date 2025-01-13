@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 15,
-    borderBottomColor: '#ccc',
+    borderBottomColor: '#333',
     borderBottomWidth: 1,
   },
   item: {
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
   status: {
     fontSize: 18,
-    color: 'green',
+    color: '#4caf50', 
   },
   list: {
     marginTop: 20,

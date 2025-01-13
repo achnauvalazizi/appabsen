@@ -1,21 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Beranda = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Selamat Datang di Aplikasi Absensi</Text>
-      <Text style={styles.subtitle}>SMK Kesehatan Nusantara</Text>
-      
+      <Text style={styles.title}>Selamat Datang di</Text>
+      <Text style={styles.subtitle}>Aplikasi Absensi</Text>
+      <Text style={styles.schoolName}>SMK Kesehatan Nusantara</Text>
+
       <View style={styles.buttonContainer}>
-        <Button 
-          title="Cek Absensi" 
-          onPress={() => navigation.navigate('CekAbsensi')} 
-        />
-        <Button 
-          title="Riwayat Absensi" 
-          onPress={() => navigation.navigate('RiwayatAbsensi')} 
-        />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('CekAbsensi')}
+        >
+          <Ionicons name="checkmark-done" size={20} color="#fff" />
+          <Text style={styles.buttonText}>Cek Absensi</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('RiwayatAbsensi')}
+        >
+          <Ionicons name="calendar" size={20} color="#fff" />
+          <Text style={styles.buttonText}>Riwayat Absensi</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -26,20 +35,44 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f0f0f5', // Warna latar lebih lembut
+    padding: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
-    marginBottom: 10,
+    color: '#333',
   },
   subtitle: {
-    fontSize: 18,
-    marginBottom: 20,
+    fontSize: 24,
+    color: '#555',
+    marginTop: 5,
+  },
+  schoolName: {
+    fontSize: 16,
+    fontStyle: 'italic',
+    color: '#777',
+    marginBottom: 30,
   },
   buttonContainer: {
-    width: '80%',
-    justifyContent: 'space-between',
+    width: '100%',
+    marginTop: 20,
+  },
+  button: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#4caf50', // Warna hijau untuk tombol
+    paddingVertical: 12,
+    borderRadius: 8,
+    marginVertical: 10,
+    marginHorizontal: 20,
+  },
+  buttonText: {
+    fontSize: 16,
+    color: '#fff',
+    marginLeft: 10, // Memberikan jarak antara ikon dan teks
+    fontWeight: 'bold',
   },
 });
 
